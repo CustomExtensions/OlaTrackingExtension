@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="../../lib/VSS.SDK.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script src="../scripts/ola-widget-bundle.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/ola-widget.css">
+</head>
+
+<body>
+    <div class="body-container">
+        <div class="summary-container">
+            <div>
+                <div class="title-container">
+                    <div class="title"></div>
+                    <div class="link">
+                        <a target="_blank" id="query-link"></a>
+                    </div>
+                </div>
+                <input type="search" id="table-search" placeholder="Search...">
+            </div>
+            <div class="counter-container" id="all-counter">
+                <div class="percent"></div>
+                <div class="count"></div>
+                <div class="label">All Bugs</div>
+            </div>
+            <div class="counter-container" id="within-counter">
+                <div class="percent"></div>
+                <div class="count"></div>
+                <div class="label">Within OLA</div>
+            </div>
+            <div class="counter-container" id="near-counter">
+                <div class="percent"></div>
+                <div class="count"></div>
+                <div class="label">Near OLA</div>
+            </div>
+            <div class="counter-container" id="past-counter">
+                <div class="percent"></div>
+                <div class="count"></div>
+                <div class="label">Past OLA</div>
+            </div>
+        </div>
+        <div class="detail-container">
+            <table id="detail-table" class="display compact cell-border"></table>
+            <div id="blank-table">
+            </div>
+        </div>
+    </div>
+</body>

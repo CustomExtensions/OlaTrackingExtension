@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="../../lib/VSS.SDK.min.js"></script>
+    <script src="../scripts/config-ola-widget-bundle.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/config-ola-widget.css">
+</head>
+
+<body>
+    <div class="widget-configuration">
+
+        <!-- QUERY -->
+        <div class="single-line-text-input">
+            <label>Query</label>
+            <input type="text" id="query-select-input" readonly placeholder="Select query...">
+            <span class="drop-icon bowtie-icon bowtie-chevron-down-light" id="query-drop-icon"></span>
+            <div id="query-select-popup"></div>
+
+            <span class="validation-error" id="non-bug-query-error">
+                <span class="icon-error-exclamation"></span>
+                <span class="validation-error-text">Please select a query that only returns bugs.</span>
+            </span>
+
+            <span class="validation-error" id="large-query-error">
+                <span class="icon-error-exclamation"></span>
+                <span class="validation-error-text">Please select a smaller query.</span>
+            </span>
+        </div>
+        <br/>
+
+        <!-- TITLE -->
+        <div class="single-line-text-input">
+            <label>Title</label>
+            <input type="text" id="title-input" placeholder="Enter title...">
+        </div>
+        <br/>
+
+        <!-- COLUMNS -->
+        <div class="single-line-text-input">
+            <label>Columns</label>
+            <input type="text" id="column-select-input" readonly placeholder="Select columns...">
+            <span class="drop-icon bowtie-icon bowtie-chevron-down-light" id="column-drop-icon"></span>
+            <div id="column-select-popup">
+                <fieldset class="checkbox">
+                    <input type="checkbox" id="state-checkbox" checked="true">
+                    <label for="state-checkbox">State</label>
+                    <br/>
+
+                    <input type="checkbox" id="severity-checkbox" checked="true">
+                    <label for="severity-checkbox">Severity</label>
+                    <br/>
+
+                    <input type="checkbox" id="triage-checkbox" checked="true">
+                    <label for="triage-checkbox">Triage Value</label>
+                    <br/>
+
+                    <input type="checkbox" id="assignee-checkbox" checked="true">
+                    <label for="assignee-checkbox">Assignee</label>
+                    <br/>
+
+                    <input type="checkbox" id="created-date-checkbox" checked="true">
+                    <label for="created-date-checkbox">Created Date</label>
+                    <br/>
+
+                    <input type="checkbox" id="triaged-date-checkbox" checked="true">
+                    <label for="triaged-date-checkbox">Triaged Date</label>
+                    <br/>
+
+                    <input type="checkbox" id="near-date-checkbox" checked="true">
+                    <label for="near-date-checkbox">Near OLA Date</label>
+                    <br/>
+
+                    <input type="checkbox" id="past-date-checkbox" checked="true">
+                    <label for="past-date-checkbox">Past OLA Date</label>
+                    <br/>
+
+                    <input type="checkbox" id="resolved-date-checkbox" checked="true">
+                    <label for="resolved-date-checkbox">Resolved Date</label>
+                    <br/>
+
+                    <input type="checkbox" id="closed-date-checkbox" checked="true">
+                    <label for="closed-date-checkbox">Closed Date</label>
+                    <br/>
+
+                    <input type="checkbox" id="elapsed-business-days-checkbox" checked="true">
+                    <label for="elapsed-business-days-checkbox">Elapsed Business Days (Start to End)</label>
+                </fieldset>
+            </div>
+        </div>
+        <br/>
+
+        <!-- OLA TRACKING DATES -->
+        <div class="ola-tracking-dates">
+
+            <!-- BEGIN OLA TRACKING WHEN ... -->
+            <div class="begin-ola-tracking-date">
+                <fieldset class="radio">
+                    <input type="radio" id="begin-with-created-date-radio" name="begin-ola-tracking" checked="true">
+                    <label for="begin-with-created-date-radio">the bug is created</label>
+                    <br/>
+                    <legend>Begin OLA tracking when ...</legend>
+                    <input type="radio" id="begin-with-triaged-date-radio" name="begin-ola-tracking">
+                    <label for="begin-with-triaged-date-radio">the bug is first triaged</label>
+                    <br/>
+                </fieldset>
+            </div>
+            <br/>
+
+            <div class="configuration-note">
+                If the second option is chosen and a bug has never been triaged, then the date and time it was created will be used instead.
+            </div>
+            <br/>
+
+            <!-- END OLA TRACKING WHEN ... -->
+            <div class="end-ola-tracking-date">
+                <fieldset class="radio">
+                    <input type="radio" id="end-with-closed-date-radio" name="end-ola-tracking" checked="true">
+                    <label for="end-with-closed-date-radio">the bug is closed</label>
+                    <br/>
+                    <legend>End OLA tracking when ...</legend>
+                    <input type="radio" id="end-with-resolved-date-radio" name="end-ola-tracking">
+                    <label for="end-with-resolved-date-radio">the bug is resolved</label>
+                    <br/>
+                </fieldset>
+            </div>
+            <br/>
+
+            <div class="configuration-note">
+                If a bug is still open (not resolved or not closed, depending on the option chosen) then the current date and time will be
+                used to determine its OLA status.
+            </div>
+            <br/>
+        </div>
+
+        <!-- NEARING OLA THRESHOLDS -->
+        <label>
+            Bugs are
+            <span style="font-weight: bold">near</span> the OLA deadline after ...
+        </label>
+
+        <!-- CRITICAL -->
+        <div class="threshold-row">
+            <div class="threshold-label">1 - Critical</div>
+            <div class="threshold-number">
+                <input type="number" id="near-crit-number" value="0">
+            </div>
+            <div class="threshold-select">
+                <select id="near-crit-select">
+                    <option value="hours" selected="true">Hours</option>
+                    <option value="businessDays">Business Days</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- HIGH -->
+        <div class="threshold-row">
+            <div class="threshold-label">2 - High</div>
+            <div class="threshold-number">
+                <input type="number" id="near-high-number" value="3">
+            </div>
+            <div class="threshold-select">
+                <select id="near-high-select">
+                    <option value="hours">Hours</option>
+                    <option value="businessDays" selected="true">Business Days</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- MEDIUM -->
+        <div class="threshold-row">
+            <div class="threshold-label">3 - Medium</div>
+            <div class="threshold-number">
+                <input type="number" id="near-med-number" value="8">
+            </div>
+            <div class="threshold-select">
+                <select id="near-med-select">
+                    <option value="hours">Hours</option>
+                    <option value="businessDays" selected="true">Business Days</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- LOW -->
+        <div class="threshold-row">
+            <div class="threshold-label">4 - Low</div>
+            <div class="threshold-number">
+                <input type="number" id="near-low-number" value="8">
+            </div>
+            <div class="threshold-select">
+                <select id="near-low-select">
+                    <option value="hours">Hours</option>
+                    <option value="businessDays" selected="true">Business Days</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- PAST OLA THRESHOLDS -->
+        <label>Bugs are
+            <span style="font-weight: bold">past</span> the OLA deadline after ...</label>
+
+        <!-- CRITICAL -->
+        <div class="threshold-row">
+            <div class="threshold-label">1 - Critical</div>
+            <div class="threshold-number">
+                <input type="number" id="past-crit-number" value="24">
+            </div>
+            <div class="threshold-select">
+                <select id="past-crit-select">
+                    <option value="hours" selected="true">Hours</option>
+                    <option value="businessDays">Business Days</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- HIGH -->
+        <div class="threshold-row">
+            <div class="threshold-label">2 - High</div>
+            <div class="threshold-number">
+                <input type="number" id="past-high-number" value="5">
+            </div>
+            <div class="threshold-select">
+                <select id="past-high-select">
+                    <option value="hours">Hours</option>
+                    <option value="businessDays" selected="true">Business Days</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- MEDIUM -->
+        <div class="threshold-row">
+            <div class="threshold-label">3 - Medium</div>
+            <div class="threshold-number">
+                <input type="number" id="past-med-number" value="10">
+            </div>
+            <div class="threshold-select">
+                <select id="past-med-select">
+                    <option value="hours">Hours</option>
+                    <option value="businessDays" selected="true">Business Days</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- LOW -->
+        <div class="threshold-row">
+            <div class="threshold-label">4 - Low</div>
+            <div class="threshold-number">
+                <input type="number" id="past-low-number" value="10">
+            </div>
+            <div class="threshold-select">
+                <select id="past-low-select">
+                    <option value="hours">Hours</option>
+                    <option value="businessDays" selected="true">Business Days</option>
+                </select>
+            </div>
+        </div>
+        <br/>
+    </div>
+</body>

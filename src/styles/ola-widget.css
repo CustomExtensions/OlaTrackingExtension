@@ -1,0 +1,254 @@
+/* Contains the main body (iframe) */
+div.body-container {
+    background-color: lightgray;
+    padding: 10px 10px 10px 10px;
+    width: 840px;
+    height: 330px;
+}
+
+/* Contains the title box and summary buttons */
+div.summary-container > div {
+    display: inline-block;
+    vertical-align: top;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+/* Contains the title, query link, and search bar */
+div.title-container {
+    background-color: #eaeaea;
+    text-align: center;
+    width: 365px;
+    height: 66px;
+    padding: 10px;
+}
+
+/* Refers to the summary buttons */
+div.counter-container {
+    margin-left: 10px;
+    width: 100px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+}
+
+/* Refers to the title before configuration */
+div.title {
+    font-size: 20px;
+    font-style: italic;
+    padding: 7px;
+    color: gray;
+}
+
+/* Overwrites the "default" title style once the title is configured */
+div.configured-title {
+    color: black;
+    font-style: normal;
+    font-weight: bold;
+    padding: 0px 10px 2px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+div.error-title {
+    color: black;
+    font-style: normal;
+    font-weight: bold;
+    padding: 7px;
+}
+
+/* The link to the query */
+div.link {
+    font-size: 12.5px;
+}
+
+/* The percentage numbers in the summary buttons */
+div.counter-container > div.percent {
+    font-size: 25px;
+    font-weight: 550;
+}
+
+/* The count numbers in the summary buttons */
+div.counter-container > div.count {
+    font-size: 15px;
+}
+
+/* The labels in the summary buttons */
+div.counter-container > div.label {
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+/* Style and behavior for the "All" summary button */
+div.counter-container#all-counter {
+    background-color: #337ab7;
+    border: 10px solid #337ab7;
+}
+
+div.selected#all-counter {
+    border: 10px solid #2e6da4;
+}
+
+div.counter-container#all-counter:hover {
+    background-color: #2e6da4;
+    border: 10px solid #2e6da4;
+}
+
+/* Style and behavior for the "Within" summary button */
+div.counter-container#within-counter {
+    background-color: #5cb85c;
+    border: 10px solid #5cb85c;
+}
+
+div.selected#within-counter {
+    border: 10px solid #4cae4c;
+}
+
+div.counter-container#within-counter:hover {
+    background-color: #4cae4c;
+    border: 10px solid #4cae4c;
+}
+
+/* Style and behavior for the "Near" summary button */
+div.counter-container#near-counter {
+    background-color: #f0ad4e;
+    border: 10px solid #f0ad4e;
+}
+
+div.selected#near-counter {
+    border: 10px solid #eea236;
+}
+
+div.counter-container#near-counter:hover {
+    background-color: #eea236;
+    border: 10px solid #eea236;
+}
+
+/* Style and behavior for the "Past" summary button */
+div.counter-container#past-counter {
+    background-color: #d9534f;
+    border: 10px solid #d9534f;
+}
+
+div.selected#past-counter {
+    border: 10px solid #d43f3a;
+}
+
+div.counter-container#past-counter:hover {
+    background-color: #d43f3a;
+    border: 10px solid #d43f3a;
+}
+
+/* Match the DataTable background and header colors */
+div.detail-container {
+    background-color: #eaeaea;
+}
+
+thead {
+    background-color: #eaeaea;
+}
+
+/* By default, header and body cells in the DataTable are centered 10px */
+th, td {
+    white-space: nowrap;
+    text-align: center;
+    font-size: 10px;
+}
+
+/* Set general display for State dots */
+span.state-dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* Specify specific State dot colors to match VSTS */
+span#new-dot {
+    background-color: rgb(178, 178, 178);
+}
+
+span#active-dot {
+    background-color: rgb(0, 122, 204);
+}
+
+span#resolved-dot {
+    background-color: rgb(255, 157, 0);
+}
+
+span#closed-dot {
+    background-color: rgb(51, 153, 51);
+}
+
+/* The custom DataTables search input and its placeholder */
+input#table-search {
+    width: 100%;
+    font-size: 10px;
+    padding: 5px 7.5px 5px 7.5px;
+    border: none;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+input#table-search::-webkit-input-placeholder {
+    color: gray;
+    font-style: italic;
+}
+
+input#table-search::-moz-placeholder {
+    color: gray;
+    font-style: italic;
+}
+
+input#table-search:-ms-input-placeholder {
+    color: gray;
+    font-style: italic;
+}
+
+input#table-search:-moz-placeholder {
+    color: gray;
+    font-style: italic;
+}
+
+/* Conditional formatting for the OLA Status cells */
+td#within {
+    color: #ffffff;
+    background-color: #5cb85c;
+}
+
+td#near {
+    color: #ffffff;
+    background-color: #f0ad4e;
+}
+
+td#past {
+    color: #ffffff;
+    background-color: #d9534f;
+}
+
+/* Override centered alignment for the State cell */
+td.left-align-cell {
+    text-align: left;
+}
+
+/* Add style to Resolved cells to identify them as hoverable */
+div.resolved-date-cell {
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+}
+
+div.resolved-date-cell:hover {
+    text-decoration-style: solid;
+}
+
+/* Appearance of DataTable space before the table has been created */
+div#blank-table {
+    background-color: #eaeaea;
+    padding: 25px;
+    height: 200px;
+    width: 100%;
+    font-size: 20px;
+}

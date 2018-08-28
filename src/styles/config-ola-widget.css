@@ -1,0 +1,178 @@
+/* Informational notes below certain options */
+div.configuration-note {
+    padding: 10px;
+    background-color: #eaeaea;
+    word-wrap: break-word;
+    width: 75%;
+    color: gray;
+    font-style: italic;
+}
+
+/* Layout and style for the near and past OLA deadline "grids" */
+div.threshold-row > div {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+div.threshold-label {
+    width: 6em;
+}
+
+div.threshold-number > input {
+    width: 4em;
+    height: 32px;
+    padding: 3px 5px;
+    border: 1px solid #eaeaea;
+}
+
+div.threshold-select > select {
+    width: 9em;
+}
+
+/* Slim down size of inputs to avoid scroll bar overlap */
+input#title-input, input#query-id-input, input#query-select-input, input#column-select-input {
+    width: 75%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Add more padding to account for drop-down chevron icon */
+input#query-select-input {
+    padding-right: 25px;
+}
+
+/* Set styles for placeholders of input fields */
+input#query-select-input::-webkit-input-placeholder, input#title-input::-webkit-input-placeholder, input#column-select-input::-webkit-input-placeholder {
+    font-style: italic;
+}
+
+input#query-select-input::-moz-placeholder, input#title-input::-moz-placeholder, input#column-select-input::-moz-placeholder {
+    font-style: italic;
+}
+
+input#query-select-input:-ms-input-placeholder, input#title-input:-ms-input-placeholder, input#column-select-input:-ms-input-placeholder {
+    font-style: italic;
+}
+
+input#query-select-input:-moz-placeholder, input#title-input:-moz-placeholder, input#column-select-input:-ms-input-placeholder {
+    font-style: italic;
+}
+
+/* Overlay drop-down chevron icon on input fields */
+span.drop-icon {
+    transform: translateX(-200%);
+}
+
+/* Popup for Query Select options */
+div#query-select-popup {
+    display: none;
+    background-color: white;
+    position: absolute;
+    max-height: 250px;
+    width: 75%;
+    z-index: 1;
+    border: 1px solid #eaeaea;
+    box-shadow: 1px 3px 8px 1px rgba(0,0,0,.4);
+    overflow-y: auto;
+}
+
+/* Popup for Column Select options */
+div#column-select-popup {
+    display: none;
+    background-color: white;
+    position: absolute;
+    width: 75%;
+    z-index: 1;
+    border: 1px solid #eaeaea;
+    box-shadow: 1px 3px 8px 1px rgba(0,0,0,.4);
+    padding: 0px 10px 10px 10px;
+}
+
+/* Set the first "root" list fully left */
+div#query-select-popup > ul {
+    padding-left: 0;
+}
+
+/* Set subsequent lists to "indent" left */
+ul {
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+}
+
+/* Set styles for list items (folders or queries) */
+li {
+    list-style: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+li.folder > a {
+    color: #000000;
+    font-weight: 550;
+}
+
+li.folder > a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+li.query > a {
+    font-weight: normal;
+}
+
+li.query > a:hover {
+    text-decoration: underline;
+}
+
+li:before {
+    content: '\25AB';
+    font-family: 'arial_unicode_ms';
+    display: inline-block;
+    width: 15px;
+    text-align: center;
+}
+
+li.folder:before {
+    content: '\25B8';
+}
+
+li.expanded:before {
+    content: '\25BE';
+}
+
+li > a {
+    font-style: normal;
+}
+
+li.expanded > a {
+    font-style: italic;
+}
+
+li > ul {
+    display: none;
+}
+
+li.expanded > ul {
+    display: block;
+}
+
+/* Show the Query Select popup */
+div#query-select-popup.expanded {
+    display: block;
+}
+
+/* Show the Column Select popup */
+div#column-select-popup.expanded {
+    display: block;
+}
+
+/* Error messages*/
+span#non-bug-query-error, span#large-query-error {
+    visibility: visible;
+    display: none;
+    padding: 5px 0px 0px 0px;
+    width: 75%;
+}
