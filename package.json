@@ -14,6 +14,6 @@
     "moment": "^2.22.2",
     "moment-business": "^3.0.1",
     "tfx-cli": "^0.5.14",
-    "vss-web-extension-sdk": "^5.134.0"
+    "vss-web-extension-sdk": "^5.140.0"
   }
 }
