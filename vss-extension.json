@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "olaTrackingWidget",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "OLA Tracking Widget",
     "publisher": "tmdement",
     "public": true,

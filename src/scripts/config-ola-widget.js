@@ -59,7 +59,7 @@ VSS.require(['TFS/Dashboards/WidgetHelpers', 'TFS/WorkItemTracking/RestClient'],
                 // Retrieve the project name from the web context and use the REST Client
                 // to retrieve the queries or folders at the project root.
                 const projectName = VSS.getWebContext().project.name;
-                RestClient.getClient().getQueries(projectName, 'Minimal', 1).then(result => {
+                return RestClient.getClient().getQueries(projectName, 'Minimal', 1).then(result => {
                     // Group the root queries or folders and create the base of the query drop-down.
                     const baseQuery = {};
                     baseQuery.hasChildren = true;
