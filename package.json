@@ -10,10 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "browserify": "^16.2.2",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.15",
     "moment": "^2.22.2",
     "moment-business": "^3.0.1",
-    "tfx-cli": "^0.5.14",
+    "tfx-cli": "^0.7.11",
     "vss-web-extension-sdk": "^5.134.0"
   }
 }
